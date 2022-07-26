@@ -1,0 +1,27 @@
+version: "3"
+services:
+  frontend:
+    build:
+      context: ???
+      dockerfile: ???
+    container_name: clickcat_frontend
+    ports:
+      - ???
+    depends_on:
+      - ???
+
+  backend:
+    build:
+      context: ./backend
+    container_name: clickcat_backend
+    ports:
+      - ???
+    environment:
+      - REDIS_HOST=???
+      - REDIS_PORT=6379
+    depends_on:
+      - ???
+
+  redis:
+    image: redis:7-alpine
+    container_name: clickcat_redis

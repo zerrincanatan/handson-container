@@ -1,0 +1,51 @@
+name: Deploy ClickCat App
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    env:
+      AWS_REGION: eu-west-1
+      FRONT_IMAGE_NAME: clickcat-frontend
+      BACK_IMAGE_NAME: clickcat-backend
+
+    steps:
+      # 1. Checkout code
+      - name: ???
+        uses: ???
+
+      # 2. Configure AWS credentials via secrets
+      - name: ???
+        uses: ???
+        with:
+          aws-access-key-id: ???
+          aws-secret-access-key: ???
+          aws-region: ???
+
+      # 3. Log in to Amazon ECR
+
+      # 4. Run tests
+      - name: ???
+        run: |
+          ???
+          ???
+          ???
+
+      # 5. Define image URIs
+      - name: Set image names
+        run: |
+          echo "FRONT_IMAGE=662195598891.dkr.ecr.eu-north-1.amazonaws.com/${{ env.FRONT_IMAGE_NAME }}:latest" >> $GITHUB_ENV
+          echo "BACK_IMAGE=662195598891.dkr.ecr.eu-north-1.amazonaws.com/${{ env.BACK_IMAGE_NAME }}:latest" >> $GITHUB_ENV
+
+      # 6. Build and push frontend image
+      ???
+
+      # 7. Build and push backend image
+      ???

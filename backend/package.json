@@ -1,0 +1,16 @@
+{
+  "name": "clickcat-backend",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "redis": "^4.6.7"
+  },
+  "devDependencies": {
+    "jest": "^30.0.3"
+  }
+}
