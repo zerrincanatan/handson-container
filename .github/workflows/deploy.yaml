@@ -48,20 +48,13 @@ jobs:
           echo "BACK_IMAGE=662195598891.dkr.ecr.eu-north-1.amazonaws.com/${{ env.BACK_IMAGE_NAME }}:RunZerrin-${{ github.run_number }}" >> $GITHUB_ENV
 
       # 6. Build and push frontend image
-      -
-        name: Build and push
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: step3.Dockerfile
-          push: true
-          tags: ${{ env.FRONT_IMAGE }}     
-
-      # 7. Build and push backend image  
-      -
-        name: Build and push
-        uses: docker/build-push-action@v6
-        with:
-          context: ./backend
-          push: true
-          tags: ${{ env.FRONT_IMAGE }}     
+      - name: Build and push frontend image
+        run: |
+          docker build -f step3.Dockerfile -t $FRONT_IMAGE .
+          docker push $FRONT_IMAGE
+ 
+      # 7. Build and push backend image
+      - name: Build and push backend image
+        run: |
+          docker build -f step3.Dockerfile -t $BACK_IMAGE .
+          docker push $BACK_IMAGE  
