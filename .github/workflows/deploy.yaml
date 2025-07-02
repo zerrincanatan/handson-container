@@ -57,7 +57,7 @@ jobs:
           push: true
           tags: ${{ FRONT_IMAGE }}
 
-      # 7. Build and push backend image
+      # 7. Build and push backend image  
       -
         name: Build and push
         uses: docker/build-push-action@v6
