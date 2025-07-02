@@ -55,7 +55,7 @@ jobs:
           context: .
           image: step3.Dockerfile
           push: true
-          tags: $FRONT_IMAGE 
+          tags: ${{ env.FRONT_IMAGE }}     
 
       # 7. Build and push backend image  
       -
@@ -64,4 +64,4 @@ jobs:
         with:
           context: ./backend
           push: true
-          tags: $BACK_IMAGE
+          tags: ${{ env.FRONT_IMAGE }}     
