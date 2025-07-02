@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:18-alpine AS builder
 
 # on se place dans un dossier de travail et on y copie tout le code de l'application
 WORKDIR /app
